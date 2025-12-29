@@ -15,7 +15,8 @@ namespace ConsoleApp2
             //TestTwo();
             //TestThree();
             //TestFour();
-            TestFive();
+            //TestFive();
+            TestSix();
 
         }
 
@@ -117,8 +118,8 @@ namespace ConsoleApp2
         {
             try
             {
-
                 Console.Write("Enter count: ");
+
                 //int.TryParse(Console.ReadLine(), out int result);
 
                 int result = Convert.ToInt32(Console.ReadLine());
@@ -134,6 +135,30 @@ namespace ConsoleApp2
             {
                 Console.WriteLine(err?.Message);
             }
+
+
+        }
+
+        public static void TestSix()
+        {
+
+            int.TryParse(Console.ReadLine(), out int res);
+
+            List<int> number = new List<int>();
+
+            for (int i = 1; i <= res; i++)
+            {
+                number.Add(i);
+                Console.Write($" {i} + ");
+            };
+
+            int total = 0;
+            foreach (int n in number)
+            {
+                total += n;
+            };
+
+            Console.WriteLine($" = {total}");
 
         }
     }
