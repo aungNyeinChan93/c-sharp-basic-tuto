@@ -13,7 +13,9 @@ namespace ConsoleApp2
 
             //a.TestOne();
             //TestTwo();
-            TestThree();
+            //TestThree();
+            //TestFour();
+            TestFive();
 
         }
 
@@ -73,17 +75,66 @@ namespace ConsoleApp2
                 new User("mumu","mumu@123"),
                 new User("dodo","dodo@123")];
 
-            foreach(User user in users)
+            //foreach (User user in users)
+            //{
+            //    if (user.Name.Equals("dodo"))
+            //    {
+            //        user?.Name = "ronaldo";
+            //        user?.Email = "ronaldo@123";
+            //    }
+            //    Console.WriteLine(user?.Name);
+            //    Console.WriteLine(user?.Email);
+            //    user?.Info();
+
+            //    int.TryParse(Console.ReadLine(), out int num);
+            //    Console.WriteLine(num);
+            //}
+
+            for (int i = 0; i < users?.Count; i++)
             {
-                if(user.Name.Equals("dodo"))
-                {
-                    user?.Name = "ronaldo";
-                    user?.Email = "ronaldo@123";
-                }
-                Console.WriteLine(user?.Name);
-                Console.WriteLine(user?.Email);
-                user?.Info();
+                Console.WriteLine(users[i]?.Name);
+                users[i].Info();
             }
+        }
+
+        public static void TestFour()
+        {
+            Queue<string> member = new Queue<string>();
+            member.Enqueue("hello");
+            member.Enqueue("hello");
+            member.Enqueue("hello");
+
+
+            //Console.WriteLine(member.Dequeue());
+
+            foreach (var item in member)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        public static void TestFive()
+        {
+            try
+            {
+
+                Console.Write("Enter count: ");
+                //int.TryParse(Console.ReadLine(), out int result);
+
+                int result = Convert.ToInt32(Console.ReadLine());
+
+                int[] counter = new int[result];
+
+                for (int i = 0; i < counter?.Length; i++)
+                {
+                    Console.WriteLine("Happy NewYear!");
+                }
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err?.Message);
+            }
+
         }
     }
 
