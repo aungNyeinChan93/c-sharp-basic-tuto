@@ -6,7 +6,8 @@
         {
             //TestOne();
             //Test.TestStruct();
-            TestTwo();
+            //TestTwo();
+            TestThree();
         }
 
         public struct User
@@ -45,7 +46,6 @@
                 return true;
             }
             ;
-
             return false;
         }
 
@@ -58,6 +58,18 @@
                 newUser.Info();
             }
 
+        }
+
+        public static User CreateUser(string name)
+        {
+            User user = new() { Name = name };
+            return user;
+        }
+
+        public static void TestThree()
+        {
+            var koko = CreateUser("koko");
+            koko.Info();
         }
 
     }
