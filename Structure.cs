@@ -4,8 +4,9 @@
     {
         public static void Main()
         {
-            TestOne();
-            Test.TestStruct();
+            //TestOne();
+            //Test.TestStruct();
+            TestTwo();
         }
 
         public struct User
@@ -16,7 +17,7 @@
 
             public int Age { get; set; }
 
-            public  void Info()
+            public void Info()
             {
                 Console.WriteLine($"Name is {this.Name} .Email is {Email} , Age is {Age}");
             }
@@ -31,9 +32,32 @@
 
             User user2 = user1; // note ->  struct is value type  & class is refrence type
             user2.Age = 21;
-             
+
             user1.Info();
             Console.WriteLine(new { name = user1.Name, email = user1.Email, age = user1.Age, user2_age = user2.Age });
+        }
+
+        public static bool ChangeName(ref User user, string changeName)
+        {
+            if (user.Name != "")
+            {
+                user.Name = changeName;
+                return true;
+            }
+            ;
+
+            return false;
+        }
+
+        public static void TestTwo()
+        {
+            User newUser = new User() { Name = "abc", Email = "asbc@123" };
+            var isSuccess = ChangeName(ref newUser, "zxc");
+            if (isSuccess)
+            {
+                newUser.Info();
+            }
+
         }
 
     }
@@ -50,7 +74,6 @@
             };
 
             Console.WriteLine($"Name :{aung.Name} , Email: {aung.Email} , Age : {aung.Age}");
-
         }
     }
 }
